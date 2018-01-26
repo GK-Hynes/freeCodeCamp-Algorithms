@@ -3,7 +3,7 @@
 function destroyer(arr) {
   var args = Array.from(arguments);
 
-  return arr.filter(function(element){
+  return arr.filter(function(element) {
     return !args.includes(element);
   });
 }

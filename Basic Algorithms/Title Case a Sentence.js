@@ -1,10 +1,9 @@
 /*Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.*/
 
 function titleCase(str) {
-
   var newArr = str.toLowerCase().split(" ");
-  var capitalized = newArr.map(function(word){
-      return word.replace(word.charAt(0), word.charAt(0).toUpperCase());
+  var capitalized = newArr.map(function(word) {
+    return word.replace(word.charAt(0), word.charAt(0).toUpperCase());
   });
 
   return capitalized.join(" ");

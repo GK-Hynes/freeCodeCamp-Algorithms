@@ -2,8 +2,8 @@
 
 function repeatStringNumTimes(str, num) {
   var newStr = "";
-  for(var i = 0; i < num; i++){
-    newStr =  newStr.concat(str);
+  for (var i = 0; i < num; i++) {
+    newStr = newStr.concat(str);
   }
   return newStr;
 }
@@ -14,7 +14,7 @@ repeatStringNumTimes("*", 3);
 
 function repeatStringNumTimes(str, num) {
   var newStr = "";
-  while (num > 0){
+  while (num > 0) {
     newStr += str;
     num--;
   }
