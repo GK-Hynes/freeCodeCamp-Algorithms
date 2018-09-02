@@ -4,19 +4,23 @@ The algorithms I have completed so far for the freeCodeCamp Front End Developmen
 
 ## Basic Algorithms
 
-* Reverse a String
-* Factorialize a Number
-* Check for Palindromes
-* Find the Longest Word in a String
-* Title Case a Sentence
-* Return the Largest Numbers in Arrays
-* Confirm the Ending
-* Repeat a String
-* Truncate a String
-* Chunky Monkey
-* Slasher Flick
-* Mutations
-* Falsy Bouncer
-* Seek and Destroy
-* Where Do I Belong?
-* Caesar's Cipher
+- Convert Celsius to Fahrenheit
+- Reverse a String
+- Factorialize a Number
+- Check for Palindromes
+- Find the Longest Word in a String
+- Title Case a Sentence
+- Return the Largest Numbers in Arrays
+- Confirm the Ending
+- Repeat a String
+- Truncate a String
+- Finders Keepers
+- Boo Who
+- Chunky Monkey
+- Slasher Flick
+- Mutations
+- Slice and Splice
+- Falsy Bouncer
+- Seek and Destroy
+- Where Do I Belong?
+- Caesar's Cipher
