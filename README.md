@@ -7,7 +7,6 @@ The algorithms I have completed so far for the freeCodeCamp Front End Developmen
 - Convert Celsius to Fahrenheit
 - Reverse a String
 - Factorialize a Number
-- Check for Palindromes
 - Find the Longest Word in a String
 - Title Case a Sentence
 - Return the Largest Numbers in Arrays
@@ -21,6 +20,13 @@ The algorithms I have completed so far for the freeCodeCamp Front End Developmen
 - Mutations
 - Slice and Splice
 - Falsy Bouncer
-- Seek and Destroy
 - Where Do I Belong?
+
+## Intermediate Algorithms
+
+- Seek and Destroy
+
+## Algorithm and Data Structures Projects
+
+- Palindrome Checker
 - Caesar's Cipher
