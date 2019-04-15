@@ -24,7 +24,13 @@ The algorithms I have completed so far for the freeCodeCamp Front End Developmen
 
 ## Intermediate Algorithms
 
+- Sum All Numbers in a Range
+- Diff Two Arrays
 - Seek and Destroy
+- Wherefore art thou
+- Spinal Tap Case
+- Pig Latin
+- Search and Replace
 
 ## Algorithm and Data Structures Projects
 
