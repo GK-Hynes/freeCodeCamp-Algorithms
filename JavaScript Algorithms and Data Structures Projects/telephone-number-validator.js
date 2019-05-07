@@ -5,9 +5,9 @@
 function telephoneCheck(str) {
   const regex = /^1?\s?(\(\d{3}\)|\d{3})\s?[-|\s]*\d{3}[-|\s]*\d{4}$/;
   if (str.match(regex)) {
-    console.log("matched!");
+    return true;
   } else {
-    console.log("Not matched");
+    return false;
   }
 }
 
