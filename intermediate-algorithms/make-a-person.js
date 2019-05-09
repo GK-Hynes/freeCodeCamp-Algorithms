@@ -9,34 +9,25 @@
 // These methods must be the only available means of interacting with the object.
 
 const Person = function(firstAndLast) {
-  let name = firstAndLast.split(" ");
-  let firstName = name[0];
-  let lastName = name[1];
-  let fullName = `${firstName} ${lastName}`;
-  (this.getFullName = function() {
-    return fullName;
+  let fullName = firstAndLast;
+  (this.getFirstName = function() {
+    return fullName.split(" ")[0];
   }),
-    (this.getFirstName = function() {
-      return firstName;
-    }),
     (this.getLastName = function() {
-      return lastName;
+      return fullName.split(" ")[1];
+    }),
+    (this.getFullName = function() {
+      return fullName;
     }),
     (this.setFirstName = function(first) {
-      firstName = first;
-      fullName = `${firstName} ${lastName}`;
+      fullName = `${first} ${fullName.split(" ")[1]}`;
     }),
     (this.setLastName = function(last) {
-      lastName = last;
-      fullName = `${firstName} ${lastName}`;
+      fullName = `${fullName.split(" ")[0]} ${last}`;
     }),
     (this.setFullName = function(firstAndLast) {
       fullName = firstAndLast;
-      name = firstAndLast.split(" ");
-      firstName = name[0];
-      lastName = name[1];
     });
-  return fullName;
 };
 
 const bob = new Person("Bob Ross");
