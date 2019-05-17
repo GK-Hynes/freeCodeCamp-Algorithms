@@ -32,3 +32,11 @@ orbitalPeriod([
   { name: "hubble", avgAlt: 556.7 },
   { name: "moon", avgAlt: 378632.553 }
 ]);
+
+/*
+1. Create a function, calcOrbital, to calculate the orbital period based off the avgAlt.
+2. Use the formula: orbitalPeriod = 2 * Math.PI * Math.sqrt(Math.pow(earthRadius + avgAlt, 3) / GM).
+3. Map over the array, call calcOrbital on each object's avgAlt and set that as the obj's orbitalPeriod.
+4. Use the delete operator to remove the obj's avgAlt.
+5. Return the arr.
+*/
