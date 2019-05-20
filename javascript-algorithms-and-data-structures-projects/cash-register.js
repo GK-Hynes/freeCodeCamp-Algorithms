@@ -13,16 +13,16 @@
 function checkCashRegister(price, cash, cid) {
   let result = { status: "", change: [] };
   let changeDue = cash - price;
-  const cashReference = [
-    { denom: "ONE HUNDRED", value: 100.0 },
-    { denom: "TWENTY", value: 20.0 },
-    { denom: "TEN", value: 10.0 },
-    { denom: "FIVE", value: 5.0 },
-    { denom: "ONE", value: 1.0 },
-    { denom: "QUARTER", value: 0.25 },
-    { denom: "DIME", value: 0.1 },
-    { denom: "NICKEL", value: 0.05 },
-    { denom: "PENNY", value: 0.01 }
+  const denominationReference = [
+    { denomination: "ONE HUNDRED", value: 100.0 },
+    { denomination: "TWENTY", value: 20.0 },
+    { denomination: "TEN", value: 10.0 },
+    { denomination: "FIVE", value: 5.0 },
+    { denomination: "ONE", value: 1.0 },
+    { denomination: "QUARTER", value: 0.25 },
+    { denomination: "DIME", value: 0.1 },
+    { denomination: "NICKEL", value: 0.05 },
+    { denomination: "PENNY", value: 0.01 }
   ];
 
   // Create register object
@@ -49,17 +49,18 @@ function checkCashRegister(price, cash, cid) {
   }
 
   // Calculate change available and compare to change needed
-  const changeAvailable = cashReference.reduce((acc, curr) => {
-    let value = 0;
-    while (register[curr.denom] > 0 && changeDue >= curr.value) {
+  const changeAvailable = denominationReference.reduce((acc, curr) => {
+    let valueOfCurrentDenomination = 0;
+    while (register[curr.denomination] > 0 && changeDue >= curr.value) {
       changeDue -= curr.value;
-      register[curr.denom] -= curr.value;
-      value += curr.value;
+      register[curr.denomination] -= curr.value;
+      valueOfCurrentDenomination += curr.value;
 
+      // Round changeDue to counteract floating point issues
       changeDue = Math.round(changeDue * 100) / 100;
     }
-    if (value > 0) {
-      acc.push([curr.denom, value]);
+    if (valueOfCurrentDenomination > 0) {
+      acc.push([curr.denomination, valueOfCurrentDenomination]);
     }
     return acc;
   }, []);
@@ -85,17 +86,6 @@ function checkCashRegister(price, cash, cid) {
 // ["TWENTY", 60],
 // ["ONE HUNDRED", 100]]
 
-checkCashRegister(19.5, 20, [
-  ["PENNY", 1.01],
-  ["NICKEL", 2.05],
-  ["DIME", 3.1],
-  ["QUARTER", 4.25],
-  ["ONE", 90],
-  ["FIVE", 55],
-  ["TEN", 20],
-  ["TWENTY", 60],
-  ["ONE HUNDRED", 100]
-]);
 checkCashRegister(3.26, 100, [
   ["PENNY", 1.01],
   ["NICKEL", 2.05],
@@ -107,3 +97,22 @@ checkCashRegister(3.26, 100, [
   ["TWENTY", 60],
   ["ONE HUNDRED", 100]
 ]);
+
+/* 
+1. Create a result object with status set to an empty string and change set to an empty array.
+2. Subtract price from cash to get the change due.
+3. Create an array of objects listing the values of each denomination.
+4. Use reduce to turn cid into an object with a total for the register and the value of each denomination in the register. 
+5. If the register total equals the change due, return the result with the status as "CLOSED" and change as cid.
+6. If the register total is less than the change due, return the result with the status as "INSUFFICIENT_FUNDS". 
+7. Loop over the cash reference using reduce, with the accumulator as an array.
+8. Use a variable, valueOfCurrentDenomination, to store the value of the denomination being checked in each "drawer" of the register.
+9. While there is cash available in the denomination being checked and changeDue is greater than or equal to the value of the current denomination, 
+  i. Subtract the value of the current denomination from changeDue.
+  ii. Take one unit of the current denomination from the register and add it to valueOfCurrentDenomination.
+10. Round changeDue to avoid floating point errors.
+11. If valueOfCurrentDenomination is greater than 0, push the current denomination and it's value onto the accumulator array.
+12. Return the accumulator array assigned to the variable changeAvailable.
+13. If changeAvailable is empty or there is still change due, return the result with the status as "INSUFFICIENT_FUNDS".
+14. Otherwise, return the result with the status set to "OPEN" and the change array set to changeAvailable.
+*/
